@@ -5,14 +5,14 @@ async function getWeather() {
 
   try {
     const response = await fetch(url);
-    if (!response.ok) throw new Error("Erreur lors de la requête");
+    if (!response.ok) throw new Error("Error of request");
 
     const data = await response.json();
     console.log(data);
 
     document.getElementById("result").innerHTML = `
       <h2>${data.location.name}, ${data.location.country}</h2>
-      <p>Température : ${data.current.temp_c}°C</p>
+      <p>Temperature : ${data.current.temp_c}°C</p>
       <p>Condition : ${data.current.condition.text}</p>
       <img src="https:${data.current.condition.icon}" alt="icon météo">
     `;
